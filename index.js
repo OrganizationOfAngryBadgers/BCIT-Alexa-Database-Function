@@ -9,6 +9,17 @@ AWS.config.update({
 });
 
 exports.handler = function (event, context, callback) {
+
+	if ((event.Records[0].Sns.Message).localeCompare("UpdateDatabase") == 0) {
+		getEvents();
+	} 
+
+
+
+	
+};
+
+function getEvents() {
 	var json;
 	const getEventsAPI = function getEventsAPI () {
 		console.log("API START GET EVENTS");
@@ -31,8 +42,7 @@ exports.handler = function (event, context, callback) {
 		}
 
 	);
-};
-
+}
 
 function saveEvents(json, callback) {
 	var dynamodb = new AWS.DynamoDB.DocumentClient();
