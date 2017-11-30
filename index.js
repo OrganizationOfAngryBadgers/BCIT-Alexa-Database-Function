@@ -2,6 +2,7 @@
 var AWS = require("aws-sdk");
 var requester = require('request-promise');
 const FB_API_URL = "fb-events-alexa.herokuapp.com";
+var moment = require('moment');
 
 AWS.config.update({
 	region: "us-west-2",
@@ -56,7 +57,7 @@ function saveEvents(json, callback) {
 				Item: {
 					eventID: "" + eventsJSON[i].id,
 					description: "" + eventsJSON[i].description,
-					endTime: "" + eventsJSON[i].end_time,
+					endTime: "" + moment(eventsJSON[i].end_time).unix(),
 					name: "" + eventsJSON[i].name,
 					pname: "" + eventsJSON[i].pname,
 					city: "" + eventsJSON[i].city,
@@ -66,7 +67,7 @@ function saveEvents(json, callback) {
 					state: "" + eventsJSON[i].state,
 					street: "" + eventsJSON[i].street,
 					zip: "" + eventsJSON[i].zip,
-					startTime: "" + eventsJSON[i].start_time
+					startTime: "" + moment(eventsJSON[i].start_time).unix()
 				}
 			}
 		}
