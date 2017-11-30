@@ -57,7 +57,7 @@ function saveEvents(json, callback) {
 				Item: {
 					eventID: "" + eventsJSON[i].id,
 					description: "" + eventsJSON[i].description,
-					endTime: 0 + moment(eventsJSON[i].end_time).unix(),
+					endTime: 0 + (moment(eventsJSON[i].end_time).utc()).unix(),
 					name: "" + eventsJSON[i].name,
 					pname: "" + eventsJSON[i].pname,
 					city: "" + eventsJSON[i].city,
@@ -67,7 +67,7 @@ function saveEvents(json, callback) {
 					state: "" + eventsJSON[i].state,
 					street: "" + eventsJSON[i].street,
 					zip: "" + eventsJSON[i].zip,
-					startTime: 0 + moment(eventsJSON[i].start_time).unix()
+					startTime: 0 + (moment(eventsJSON[i].start_time).utc()).unix()
 				}
 			}
 		}
