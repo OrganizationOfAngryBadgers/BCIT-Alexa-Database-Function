@@ -15,7 +15,7 @@ exports.handler = function (event, context, callback) {
 		return requester('https://fb-events-alexa.herokuapp.com/getEvents', function (error, response, eventsJSON) {
 			console.log("API CALLBACK");
 			console.log(eventsJSON);
-			json = eventsJSON;
+			json = eventsJSON; 
 		});
 	}
 
